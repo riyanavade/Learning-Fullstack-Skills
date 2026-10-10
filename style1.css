@@ -1,36 +1,215 @@
-h3{
-    color:crimson;
-    font-size:20px;
+* {
+    box-sizing: border-box;
 }
-.box{
-    display:flex;
-    flex-direction:center;
-    justify-content:center;
-    align-items:center;
-    border:2px solid block;
-    background-color:lightcoral;
-    width:400px;
-    height:200px;
-    position:relative;
-    transform:translate(150%,0%);
 
+html {
+    scroll-behavior: smooth;
 }
-.positions{
-    position:sticky;
-    top:-5%;
-    text-align:center;
-}
-.container{
-    border:1px solid black;
-    background-color:peachpuff;
-    position:sticky;
-    top:0%;
 
+body {
+    margin: 0;
+    padding: 15px;
+    background-color: peachpuff;
+    color: black;
+    font-family: Arial, sans-serif;
 }
-.place{
-   display:flex;
-   justify-content:end;
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
 }
-.set{
-    font-size:20px;
+
+.page-title {
+    margin: 0;
+    padding: 30px 15px;
+    border: 1px solid black;
+    background-color: peachpuff;
+    color: brown;
+    font-size: clamp(32px, 5vw, 50px);
+    text-align: center;
+}
+
+/* Profile text and photo */
+.place {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+.place-profile {
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.place-profile h1 {
+    font-size: clamp(28px, 4vw, 40px);
+    margin: 0 0 15px;
+}
+
+.place-profile h3 {
+    margin: 0 0 15px;
+    color: crimson;
+    font-size: clamp(18px, 2vw, 24px);
+}
+
+.intro {
+    margin: 0 0 20px;
+    font-family: Arial, sans-serif;
+    font-size: clamp(20px, 2.5vw, 30px);
+    line-height: 1.4;
+}
+
+.about {
+    margin: 0;
+    font-size: clamp(16px, 1.8vw, 22px);
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+.profile {
+    flex: 0 1 250px;
+    width: 250px;
+    max-width: 100%;
+    height: 375px;
+    object-fit: cover;
+}
+
+/* General headings */
+h3 {
+    color: crimson;
+    font-size: 20px;
+}
+
+/* Lists */
+.set {
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.6;
+}
+
+/* Responsive table */
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 10px;
+    border: 1px solid black;
+    text-align: left;
+    overflow-wrap: anywhere;
+}
+
+/* Contact box */
+.box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 200px;
+    padding: 25px;
+    border: 2px solid black;
+    background-color: rgb(240, 141, 79);
+}
+
+.box form {
+    width: 100%;
+    max-width: 800px;
+}
+
+.box input {
+    max-width: 100%;
+    padding: 8px;
+    margin: 5px;
+}
+
+.box h2 {
+    font-size: clamp(18px, 2vw, 28px);
+    line-height: 1.4;
+}
+
+/* Tablet and mobile screens */
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .place {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .place-profile {
+        width: 100%;
+    }
+
+    .profile {
+        width: min(250px, 80vw);
+        height: auto;
+    }
+
+    .about {
+        text-align: left;
+    }
+
+    .box {
+        align-items: stretch;
+        padding: 15px;
+    }
+
+    .box form {
+        text-align: left;
+    }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+    .page-title {
+        padding: 20px 10px;
+    }
+
+    .place-profile h1 {
+        font-size: 26px;
+    }
+
+    .place-profile h3 {
+        font-size: 18px;
+    }
+
+    .intro {
+        font-size: 20px;
+    }
+
+    .about {
+        font-size: 10px;
+    }
+
+    .profile {
+        width: 180px;
+    }
+
+    .box input[type="email"],
+    .box input[type="number"] {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .box input[type="button"] {
+        margin-left: 0;
+    }
+}
+.li{
+    list-style-type:none;
+    font-sixe:20px;
 }
