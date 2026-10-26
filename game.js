@@ -111,7 +111,7 @@ console.log("Electricity Bill:"+bill);
 
 
 
-// Number guessing game using math.floor & math.random functions.
+/* Number guessing game using math.floor & math.random functions.
 let secrectNumber = Math.floor(Math.random() * 100) + 1;
         while(true){
             let guess = parseInt(prompt("guess a number between 1 to 100"));
@@ -128,4 +128,63 @@ let secrectNumber = Math.floor(Math.random() * 100) + 1;
 
             }
         }
-   
+   */
+// ARRAY , OBJECTS & ARRAY METHOD BASED PROBLEMS
+
+//1. display the array
+let students=["blue","green","pink","white","orange"];
+console.log("students: ["+students+"]");
+console.log("First Name:"+students[0]);
+console.log("Last Name:"+students.at(-1));
+console.log("Total students:"+students.length);
+
+//2. add & remove items
+let arr=["javascript","python","java","c++"];
+console.log("Original:",[...arr]);
+
+arr.push("HTML");
+console.log("added html at the end:",[...arr]);
+
+arr.unshift("CSS");
+console.log("added CSS at the 1st:",[...arr]);
+
+arr.pop();
+console.log("deleted last element:",[...arr]);
+
+//3. student object
+let student={
+    name:"Riya",
+    age:20,
+    course:"MCA",
+    sem:"3rd",
+    college:"CBS HUBLII"
+};
+console.log(student);
+
+student.sem="4th";
+console.log("After update:",student);
+
+//4. array of student objects
+let stud=[
+    {name:"riya",age:21,marks:85},
+    {name:"sangeeta",age:20,marks:72},
+    {name:"sonu",age:25,marks:79},
+    {name:"vinnu",age:18,marks:65},
+    {name:"pooja",age:23,marks:70},
+];
+stud.forEach((student1)=>{
+    console.log(student1.name+"->"+student1.marks);
+});
+
+
+/*student object
+let s1={
+    name:"brinda",
+    age:22,
+    course:"MCA",
+    semester:"3rd",
+    college:"CBS"
+};
+console.log("name:",s1.name);
+console.log("age:",s1.age);
+*/
