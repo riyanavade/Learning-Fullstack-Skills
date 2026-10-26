@@ -177,14 +177,40 @@ stud.forEach((student1)=>{
 });
 
 
-/*student object
-let s1={
-    name:"brinda",
-    age:22,
-    course:"MCA",
-    semester:"3rd",
-    college:"CBS"
-};
-console.log("name:",s1.name);
-console.log("age:",s1.age);
-*/
+//5. map() practice printing square of numbers
+let a1=[2,4,6,8,10];
+const square=a1.map((num) => {
+    return num*num;
+});
+//console.log(a1+"->"+square);
+//console.log(square);
+a1.forEach((num,index)=>{
+    console.log(`${num} -> ${square[index]}`);
+});
+
+//6. filter() practice
+original=[12,5,8,21,30,17,4]
+let filtered=original.filter(item=>item>=10);
+console.log("filtered elements:",filtered);
+
+
+// To build a counter APP 
+let element=document.querySelector("#element");
+let increase=document.querySelector("#increase");
+let decrease = document.querySelector("#decrease");
+let count=0;
+increase.addEventListener("click",function(){
+        count=count+1;
+        element.textContent=count;
+});
+decrease.addEventListener("click", function(){
+        count=count-1;
+        element.textContent=count;
+});
+let reset=document.querySelector("#reset");
+reset.addEventListener("click",function(){
+    count=0;
+    element.textContent=count;
+});
+
+
