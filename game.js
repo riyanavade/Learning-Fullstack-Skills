@@ -214,3 +214,24 @@ reset.addEventListener("click",function(){
 });
 
 
+//to build To-Do App
+let taskInput=document.querySelector("#taskInput");
+let addButton=document.querySelector("#addButton");
+let taskList=document.querySelector("#taskList");
+let form = document.querySelector("#task");
+form.addEventListener("submit",function(event){
+    event.preventDefault();
+    let para=document.createElement("li");
+    para.textContent=taskInput.value;
+    let remove=document.createElement("button");
+     remove.textContent="delete";
+     remove.addEventListener("click",function(){
+            para.remove();
+     });
+     para.appendChild(remove);
+    taskList.appendChild(para);
+    taskList.value="";
+    
+});
+  
+
