@@ -235,3 +235,33 @@ form.addEventListener("submit",function(event){
 });
   
 
+//CALCULATOR APP
+let counter=0;
+ let number=document.querySelectorAll(".num");
+ let operator=document.querySelectorAll(".operator");
+ let result=document.querySelector("#result");
+ let clear=document.querySelector("#clear");
+ let back=document.querySelector("#back");
+ number.forEach(function(button){
+    button.addEventListener("click",function(event){
+        event.preventDefault();
+       result.value=result.value+button.value;
+ });
+});
+ operator.forEach(function(button){
+    button.addEventListener("click",function(event){
+        event.preventDefault();
+       result.value=result.value + button.value;
+
+    });
+ });
+clear.addEventListener("click",function(event){
+    event.preventDefault();
+    result.value="";
+});
+back.addEventListener("click",function(event){
+    event.preventDefault();
+    result.value=result.value.slice(0,-1);
+});
+
+ //console.log(button.value);
