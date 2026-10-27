@@ -235,33 +235,169 @@ form.addEventListener("submit",function(event){
 });
   
 
-//CALCULATOR APP
+/*CALCULATOR APP
 let counter=0;
  let number=document.querySelectorAll(".num");
- let operator=document.querySelectorAll(".operator");
+ let operators=document.querySelectorAll(".operator");
  let result=document.querySelector("#result");
  let clear=document.querySelector("#clear");
  let back=document.querySelector("#back");
+ let dot=document.querySelector("#dot");
+ let currentNumber = "";
+let previousNumber = "";
+let operator = "";
+
  number.forEach(function(button){
     button.addEventListener("click",function(event){
         event.preventDefault();
        result.value=result.value+button.value;
  });
 });
- operator.forEach(function(button){
-    button.addEventListener("click",function(event){
-        event.preventDefault();
-       result.value=result.value + button.value;
+ //let operators = document.querySelectorAll(".operator");
 
+operators.forEach(function(button) {
+    button.addEventListener("click", function(event) {
+        event.preventDefault();
+        previousNumber = result.value;
+        operator = button.value;
+        console.log("Previous Number:", previousNumber);
+        console.log("Operator:", operator);
+        result.value = "";
     });
- });
-clear.addEventListener("click",function(event){
+});
+
+    dot.addEventListener("click", function(event) {
     event.preventDefault();
-    result.value="";
+    if (!result.value.includes(".")) {
+        result.value = result.value + ".";
+    }
+
+});
+clear.addEventListener("click", function(event) {
+    event.preventDefault();
+    result.value = "";
+    previousNumber = "";
+    currentNumber = "";
+    operator = "";
+
 });
 back.addEventListener("click",function(event){
     event.preventDefault();
     result.value=result.value.slice(0,-1);
 });
-
+*/
  //console.log(button.value);
+
+ let number = document.querySelectorAll(".num");
+let operators = document.querySelectorAll(".operator");
+let result = document.querySelector("#result");
+let clear = document.querySelector("#clear");
+let back = document.querySelector("#back");
+let dot = document.querySelector("#dot");
+
+let currentNumber = "";
+let previousNumber = "";
+let operator = "";
+
+
+// NUMBER BUTTONS
+number.forEach(function(button) {
+
+    button.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        result.value = result.value + button.value;
+
+    });
+
+});
+
+
+// OPERATOR BUTTONS
+operators.forEach(function(button) {
+
+    button.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        previousNumber = result.value;
+        operator = button.value;
+
+        console.log("Previous Number:", previousNumber);
+        console.log("Operator:", operator);
+
+        result.value = "";
+
+    });
+
+});
+
+
+// DECIMAL BUTTON
+dot.addEventListener("click", function(event) {
+
+    event.preventDefault();
+
+    if (!result.value.includes(".")) {
+        result.value = result.value + ".";
+    }
+
+});
+
+
+// CLEAR BUTTON
+clear.addEventListener("click", function(event) {
+
+    event.preventDefault();
+
+    result.value = "";
+    previousNumber = "";
+    currentNumber = "";
+    operator = "";
+
+});
+
+
+// BACKSPACE BUTTON
+back.addEventListener("click", function(event) {
+
+    event.preventDefault();
+
+    result.value = result.value.slice(0, -1);
+
+});
+ // EQUALS BUTTON
+let equals = document.querySelector("#equals");
+
+equals.addEventListener("click", function(event) {
+    event.preventDefault();
+
+    currentNumber = result.value;
+
+    let first = Number(previousNumber);
+    let second = Number(currentNumber);
+    let answer;
+
+    if (operator === "+") {
+        answer = first + second;
+    } 
+    else if (operator === "-") {
+        answer = first - second;
+    } 
+    else if (operator === "*") {
+        answer = first * second;
+    } 
+    else if (operator === "/") {
+        if (second === 0) {
+            result.value = "Cannot divide by zero";
+            return;
+        }
+        answer = first / second;
+    } 
+    else if (operator === "%") {
+        answer = first % second;
+    }
+
+    result.value = answer;
+});
