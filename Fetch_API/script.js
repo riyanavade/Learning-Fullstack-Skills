@@ -18,6 +18,10 @@ let userList = document.querySelector("#userList");
 
 fetch("https://jsonplaceholder.typicode.com/users")
     .then(function(response) {
+         if (!response.ok) {
+            throw new Error("Failed to fetch users");
+        }
+
         return response.json();
     })
     .then(function(data) {
@@ -35,4 +39,13 @@ fetch("https://jsonplaceholder.typicode.com/users")
             userList.appendChild(userCard);
         });
 
+    })
+
+    .catch(function(error) {
+
+        console.log("Error:", error);
+
+        userList.innerHTML = `
+            <p>Failed to load users. Please try again.</p>
+        `;
     });
