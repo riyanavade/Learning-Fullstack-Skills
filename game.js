@@ -358,7 +358,6 @@ clear.addEventListener("click", function(event) {
 
 });
 
-
 // BACKSPACE BUTTON
 back.addEventListener("click", function(event) {
 
